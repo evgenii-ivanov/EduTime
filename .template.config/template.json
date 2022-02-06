@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Digital Skynet Corp",
+    "classifications": [ "Web", "WebAPI" ],
+    "identity": "DigitalSkynet.Boilerplate",
+    "sourceName": "DigitalSkynet.Boilerplate",
+    "name": "Digital Skynet Web API project template",
+    "shortName": "dsapiboilerplate",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "preferNameDirectory": false,
+    "symbols": {
+        "disable-cicd": {
+          "type": "parameter",
+          "datatype": "bool",
+          "defaultValue": "false"
+        }
+    },
+    "sources": [
+        {
+          "modifiers": [
+            {
+              "condition": "(disable-cicd)",
+              "exclude": [
+                ".gitlab-ci.yml", "deploy/**"
+              ]
+            }
+          ]
+        }
+    ]
+}

@@ -1,0 +1,135 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  APP_BUILD_BRANCH_ENV_MAPPING: develop=dev;master=prod;staging=staging;test=test
+
+### TEMPLATES
+
+.build_container_meta_template: &build_container_meta_definition
+  stage: build
+  image: docker:stable-git
+  tags:
+    - docker
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+.just_build_container_template: &just_build_container_definition
+  <<: *build_container_meta_definition
+  script:
+    - APP_DOCKERFILE="./$APP_TIER.Dockerfile"
+    - docker build --rm -f $APP_DOCKERFILE .
+
+.build_container_template: &build_container_definition
+  <<: *build_container_meta_definition
+  script:
+    - APP_TYPE=$(echo $APP_BUILD_BRANCH_ENV_MAPPING | awk -v branch="$CI_COMMIT_REF_NAME" '{split($0,a,";"); for(i in a) { split(a[i], b, "="); branches[b[1]]=b[2]; }};{print branches[branch]}' )
+    - APP_DOCKERFILE="./$APP_TIER.Dockerfile"
+    - docker build -t $CI_REGISTRY_IMAGE/$APP_TYPE/$APP_TIER:latest --build-arg COMMIT_SHA=${CI_COMMIT_SHA} --build-arg COMMIT_REF_NAME=${CI_COMMIT_REF_NAME} -f $APP_DOCKERFILE .
+    - docker push $CI_REGISTRY_IMAGE/$APP_TYPE/$APP_TIER:latest
+
+.test_backend_template: &test_backend_definition
+  stage: test
+  tags:
+    - docker
+  image: mcr.microsoft.com/dotnet/sdk:5.0
+  script:
+    - dotnet test backend/DigitalSkynet.Boilerplate.Tests/DigitalSkynet.Boilerplate.Tests.csproj
+
+### JUST-BUILD STAGES
+
+just build backend:
+  variables:
+    APP_TIER: backend
+  <<: *just_build_container_definition
+  only:
+    refs:
+      - merge_requests
+    changes:
+      - backend/**/*
+      - backend.Dockerfile
+  except:
+    refs:
+      - staging
+      - master
+      - development
+
+# just build frontend:
+#   variables:
+#     APP_TIER: frontend
+#   <<: *just_build_container_definition
+#   only:
+#     refs:
+#       - merge_requests
+#     changes:
+#       - frontend/**/*
+#       - nginx/**/*
+#       - frontend.Dockerfile
+#   except:
+#     refs:
+#       - staging
+#       - master
+#       - development
+
+### ACTUAL BUILD
+
+build backend:
+  variables:
+    APP_TIER: backend
+  <<: *build_container_definition
+  interruptible: true
+  only:
+    refs:
+      - develop
+      - master
+      - feature/bootstrap
+    changes:
+      - backend/**/*
+      - backend.Dockerfile
+      - deploy/backend-start.sh
+  except:
+    refs:
+      - merge_requests
+
+# build frontend:
+#   variables:
+#     APP_TIER: frontend
+#   <<: *build_container_definition
+#   interruptible: true
+#   only:
+#     refs:
+#       - develop
+#       - master
+#     changes:
+#       - frontend/**/*
+#       - nginx/**/*
+#       - frontend.Dockerfile
+#       - deploy/frontend-start.sh
+#   except:
+#     refs:
+#       - merge_requests
+
+### DEPLOY
+
+# TODO: rework, see https://docs.gitlab.com/ee/ci/triggers/#when-used-with-multi-project-pipelines
+
+deploy:
+  stage: deploy
+  tags:
+    - docker
+  image: registry.digitalskynet.com/devops/base-images/cicd:curl
+  variables:
+    TARGET_KAPITAN: 140
+  script:
+    - APP_ENV=$(echo $APP_BUILD_BRANCH_ENV_MAPPING | awk -v branch="$CI_COMMIT_REF_NAME" '{split($0,a,";"); for(i in a) { split(a[i], b, "="); branches[b[1]]=b[2]; }};{print branches[branch]}' )
+    - kapitan-deploy.sh "flash_media_$APP_ENV"
+  only:
+    refs:
+      - develop
+      - master
+      - staging
+  except:
+    refs:
+      - merge_requests

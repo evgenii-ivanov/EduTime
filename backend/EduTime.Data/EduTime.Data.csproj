@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>DigitalSkynet.Boilerplate.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DigitalSkynet.DotnetCore.DataAccess" Version="1.0.0.37" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EduTime.Domain\EduTime.Domain.csproj" />
+    <ProjectReference Include="..\EduTime.Dtos\EduTime.Dtos.csproj" />
+    <ProjectReference Include="..\EduTime.ViewModels\EduTime.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

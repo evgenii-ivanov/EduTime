@@ -1,0 +1,105 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduTime.Api", "EduTime.Api\EduTime.Api.csproj", "{1CD85215-062A-4687-8DE3-8D95FC6D3E62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduTime.Core", "EduTime.Core\EduTime.Core.csproj", "{FC5944BA-62BA-4B17-8028-D9E51E631AC2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduTime.Data", "EduTime.Data\EduTime.Data.csproj", "{37018D5C-2096-460A-B090-F5502820B183}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduTime.Domain", "EduTime.Domain\EduTime.Domain.csproj", "{587A7E09-360B-4E73-BCEB-FC8E45E46A85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduTime.Dtos", "EduTime.Dtos\EduTime.Dtos.csproj", "{710A6BB2-2DDD-434B-BABA-CA8AFBF1074C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduTime.ViewModels", "EduTime.ViewModels\EduTime.ViewModels.csproj", "{4C84C040-AF6F-4EDA-B2B3-40DD6373D675}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduTime.Foundation", "EduTime.Foundation\EduTime.Foundation.csproj", "{2EED38C5-0FA6-47DA-83B9-D33F5B2AD035}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EduTime.Tests", "EduTime.Tests\EduTime.Tests.csproj", "{4E4867A3-F91C-4E8F-9558-6DC225BCE247}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1235892F-E753-40E8-A034-9DF1AA683F89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{397D5E47-783A-4ADA-A7A9-BAADB66C71A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9F59361F-B5F0-4111-B8B2-30182D6BFFA8}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+		..\.gitlab-ci.yml = ..\.gitlab-ci.yml
+		..\backend.Dockerfile = ..\backend.Dockerfile
+		nuget.config = nuget.config
+		..\deploy\backend-start.sh = ..\deploy\backend-start.sh
+		..\.gitignore = ..\.gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTime.Jobs", "EduTime.Jobs\EduTime.Jobs.csproj", "{14251F8F-0E76-43CB-B96B-0943440A006C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTime.AdminCli", "EduTime.AdminCli\EduTime.AdminCli.csproj", "{C23977AB-F215-4838-B8DB-2FA29AD9D0FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CD85215-062A-4687-8DE3-8D95FC6D3E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD85215-062A-4687-8DE3-8D95FC6D3E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD85215-062A-4687-8DE3-8D95FC6D3E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD85215-062A-4687-8DE3-8D95FC6D3E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC5944BA-62BA-4B17-8028-D9E51E631AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5944BA-62BA-4B17-8028-D9E51E631AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC5944BA-62BA-4B17-8028-D9E51E631AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC5944BA-62BA-4B17-8028-D9E51E631AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37018D5C-2096-460A-B090-F5502820B183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37018D5C-2096-460A-B090-F5502820B183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37018D5C-2096-460A-B090-F5502820B183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37018D5C-2096-460A-B090-F5502820B183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{587A7E09-360B-4E73-BCEB-FC8E45E46A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{587A7E09-360B-4E73-BCEB-FC8E45E46A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{587A7E09-360B-4E73-BCEB-FC8E45E46A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{587A7E09-360B-4E73-BCEB-FC8E45E46A85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{710A6BB2-2DDD-434B-BABA-CA8AFBF1074C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{710A6BB2-2DDD-434B-BABA-CA8AFBF1074C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{710A6BB2-2DDD-434B-BABA-CA8AFBF1074C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{710A6BB2-2DDD-434B-BABA-CA8AFBF1074C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C84C040-AF6F-4EDA-B2B3-40DD6373D675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C84C040-AF6F-4EDA-B2B3-40DD6373D675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C84C040-AF6F-4EDA-B2B3-40DD6373D675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C84C040-AF6F-4EDA-B2B3-40DD6373D675}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EED38C5-0FA6-47DA-83B9-D33F5B2AD035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EED38C5-0FA6-47DA-83B9-D33F5B2AD035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EED38C5-0FA6-47DA-83B9-D33F5B2AD035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EED38C5-0FA6-47DA-83B9-D33F5B2AD035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E4867A3-F91C-4E8F-9558-6DC225BCE247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E4867A3-F91C-4E8F-9558-6DC225BCE247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E4867A3-F91C-4E8F-9558-6DC225BCE247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E4867A3-F91C-4E8F-9558-6DC225BCE247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14251F8F-0E76-43CB-B96B-0943440A006C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14251F8F-0E76-43CB-B96B-0943440A006C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14251F8F-0E76-43CB-B96B-0943440A006C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14251F8F-0E76-43CB-B96B-0943440A006C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23977AB-F215-4838-B8DB-2FA29AD9D0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23977AB-F215-4838-B8DB-2FA29AD9D0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23977AB-F215-4838-B8DB-2FA29AD9D0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23977AB-F215-4838-B8DB-2FA29AD9D0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CD85215-062A-4687-8DE3-8D95FC6D3E62} = {1235892F-E753-40E8-A034-9DF1AA683F89}
+		{FC5944BA-62BA-4B17-8028-D9E51E631AC2} = {1235892F-E753-40E8-A034-9DF1AA683F89}
+		{37018D5C-2096-460A-B090-F5502820B183} = {1235892F-E753-40E8-A034-9DF1AA683F89}
+		{587A7E09-360B-4E73-BCEB-FC8E45E46A85} = {1235892F-E753-40E8-A034-9DF1AA683F89}
+		{710A6BB2-2DDD-434B-BABA-CA8AFBF1074C} = {1235892F-E753-40E8-A034-9DF1AA683F89}
+		{4C84C040-AF6F-4EDA-B2B3-40DD6373D675} = {1235892F-E753-40E8-A034-9DF1AA683F89}
+		{2EED38C5-0FA6-47DA-83B9-D33F5B2AD035} = {1235892F-E753-40E8-A034-9DF1AA683F89}
+		{4E4867A3-F91C-4E8F-9558-6DC225BCE247} = {397D5E47-783A-4ADA-A7A9-BAADB66C71A4}
+		{14251F8F-0E76-43CB-B96B-0943440A006C} = {1235892F-E753-40E8-A034-9DF1AA683F89}
+		{C23977AB-F215-4838-B8DB-2FA29AD9D0FA} = {1235892F-E753-40E8-A034-9DF1AA683F89}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {280C47DC-6E56-47C7-A576-68395CC8737C}
+	EndGlobalSection
+EndGlobal
